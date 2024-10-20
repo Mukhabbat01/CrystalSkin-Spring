@@ -15,16 +15,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 			+ "left join file f on f.prd_id = p.prd_id "
 			+ "group by p.prd_id, p.price, p.title, p.cat_id" , nativeQuery = true)
 	List<ProductResDto> findAllProducts();
-//
-//	@Query(value="WITH ranked_products AS ( "
-//			+ "SELECT * , "
-//			+ "ROW_NUMBER() OVER(PARTITION BY skin_id ORDER BY prd_id) AS row_num "
-//			+ "FROM product\n"
-//			+ "WHERE cat_id = 'oil' + 'CleansingFoam' ) "
-//			+ "SELECT * "
-//			+ "FROM ranked_products "
-//			+ "WHERE row_num = 1; " , nativeQuery = true)
-//	public List<ProductResDto> findAllProducts();
 
 		
 	
